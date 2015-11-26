@@ -4,7 +4,13 @@
   "description": "Watch with node; upload with python.",
   "main": "watcher.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "pip install -r ./python/requirements.txt",
+    "postinstall": "python ./python/create_oauth.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://phil3903@github.com/phil3903/google-music-watcher.git"
   },
   "keywords": [
     "python",

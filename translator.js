@@ -4,9 +4,13 @@ var options = {
   scriptPath: './python'
 };
 
+export const COMMANDS = {
+    TEST: 'test.py',
+    UPLOAD: 'upload.py',
+    OAUTH: 'create_oauth.py'
+};
 
-
-var pyshell = new PythonShell('test.py', options);
+var pyshell = new PythonShell(COMMANDS.TEST, options);
 
 var output = '';
 
@@ -16,8 +20,8 @@ pyshell.stdout.on('data', function (data) {
 
 pyshell
   .send({ a: 'b' })
-  .send(null)
-  .send([1, 2, 3])
+  //.send(null)
+  //.send([1, 2, 3])
   .end(function (err) {
     if (err) return console.log(err);
     console.log(output);
