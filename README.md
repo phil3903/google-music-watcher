@@ -11,6 +11,7 @@ Watch file location with Node.js; Upload to Google Play Music with Python.
 
 ```bash
 npm install
+```
 
 This will install python dependencies, node dependencies, and prompt for oauth.cred creation.
 
@@ -18,5 +19,6 @@ This will install python dependencies, node dependencies, and prompt for oauth.c
 
 ```bash
 node watcher.js
+```
 
 Default watch dir is './watch_dir'
