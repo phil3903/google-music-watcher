@@ -1,7 +1,10 @@
 import sys
 import json
 
+node_input = []
 for line in sys.stdin:
-  n = json.loads(line)
-  print json.dumps(n['a'])
+    node_input = json.loads(line)
+
+for item in node_input:
+    print json.dumps(item)
 

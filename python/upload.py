@@ -1,14 +1,20 @@
 from gmusicapi import Musicmanager, clients
-import os.path
+import json
+import sys
 
 oauth_path = clients.OAUTH_FILEPATH
 
-# oauth login
 mm = Musicmanager()
 is_logged_in = mm.login(oauth_path)
 
+# Get file paths from node
+file_names = []
+for line in sys.stdin:
+    file_names = json.loads(line)
+
+# Perform upload
 if is_logged_in:
-    upload_result = mm.upload('file', '320k', True)
-    print upload_result
+    upload_result = mm.upload(file_names, '320k', True)
+    print json.dumps(upload_result)
 
 
