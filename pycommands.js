@@ -4,7 +4,7 @@ PythonShell.defaultOptions = {
   scriptPath: './python'
 };
 
-const COMMANDS = {
+var COMMANDS = {
   TEST: 'test.py',
   UPLOAD: 'upload.py',
   OAUTH: 'create_oauth.py'
@@ -21,7 +21,7 @@ exports.test = function(filePaths) {
 
   pyshell
     .send(filePaths)
-    .end((err)=>{
+    .end(function (err){
       if (err) return console.log(err);
       console.log(output);
     });
@@ -32,12 +32,12 @@ exports.upload = function(filePaths){
 
   var output = '';
 
-  pyshell.stdout.on('data', (data)=>{
+  pyshell.stdout.on('data', function(data){
     output = data;
   });
 
   pyshell.send(filePaths)
-  .end((err)=>{
+  .end(function(err){
     if(err) return console.log(err);
     console.log(output);
   })
