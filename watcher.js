@@ -1,7 +1,10 @@
 var pyshell = require('./pycommands');
 var chokidar = require('chokidar');
+var argv = require('minimist')(process.argv.slice(2));
 
-const WATCH_DIR = './watch_dir';
+var WATCH_DIR = argv.d || 'watch_dir';
+
+console.log(WATCH_DIR);
 
 var watcher = chokidar.watch(WATCH_DIR, {
   ignored: /[\/\\]\./,
